@@ -1,11 +1,35 @@
-[![Udacity - Robotics NanoDegree Program](https://s3-us-west-1.amazonaws.com/udacity-robotics/Extra+Images/RoboND_flag.png)](https://www.udacity.com/robotics)
+# Project: Follow Me (Deep Learning)
+### Submission for Udacity Robotics Software Engineer Nanodegree Program
+### Sebastian Castro - 2018
+
+[//]: # (Image References)
+
+[image_0]: ./docs/misc/sim_screenshot.png
+
+![alt text][image_0] 
+
+---
+
+## Introduction
+
+## Methodology
+
+### Data Collection and Preprocessing
+
+### Neural Network Architecture
+
+## Results
+
+## Future Work
+
+---
+
+# OLD README FILE BELOW (TO REMOVE)
 
 ## Deep Learning Project ##
 
 In this project, you will train a deep neural network to identify and track a target in simulation. So-called “follow me” applications like this are key to many fields of robotics and the very same techniques you apply here could be extended to scenarios like advanced cruise control in autonomous vehicles or human-robot collaboration in industry.
 
-[image_0]: ./docs/misc/sim_screenshot.png
-![alt text][image_0] 
 
 ## Setup Instructions
 **Clone the repository**
