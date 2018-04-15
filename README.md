@@ -15,12 +15,37 @@
 ## Methodology
 
 ### Data Collection and Preprocessing
+Augmented provided data with more patrol/follow data.
+
+The key was to get good data that contained several persons up close. To do this,
+* Created lots of spawn points around the hero path
+* Had patrol points at varying altitudes, so long as there were some visible people
+* Tried to use diverse backgrounds (grass, road, footpath)
+* Tried to include the obstructions such as rocks, colorful trees, etc.
 
 ### Neural Network Architecture
+Inspired by U-Net (https://arxiv.org/abs/1505.04597), which halves the image size and doubles the 
+number depth at each step. Unlike the architecture in the paper, which has 4 encoder and decoder
+layers with passthrough, our network only has 3. The 1x1 convolution layer at the "center" of the 
+neural network therefore has 512 filters instead of 1024.
+
+### Training Hyperparameters
+Learning rate was 0.005. We chose a learning rate that was small enough to cause a constant 
+decrease in loss, while also ensuring that validation loss did not oscillate or increase 
+significantly during training.
+
+Batch size was set to 64, since a batch size of 128 and higher caused out of memory issues 
+on the EC2 instance given our network parameters.
+
+Since the training set had about 6100 images and the validation set about 1500 images, 
+the number of steps per epoch were set to 100 and 25, respectively.
 
 ## Results
 
 ## Future Work
+More data!
+
+Dropout
 
 ---
 
@@ -179,7 +204,7 @@ Share your scores in slack, and keep a tally in a pinned message. Scores should 
 2. Launch the simulator, select "Spawn People", and then click the "Follow Me" button.
 3. Run the realtime follower script
 ```
-$ python follower.py my_amazing_model.h5
+$ python follower.py my_amazing_model.h5 --pred_viz
 ```
 
 **Note:** If you'd like to see an overlay of the detected region on each camera frame from the drone, simply pass the `--pred_viz` parameter to `follower.py`
