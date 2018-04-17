@@ -40,7 +40,7 @@ Some keys to getting good data were:
 * Tried to use diverse backgrounds (grass, road, footpath), including obstructions such as rocks, colorful trees, etc.
 
 ![Data collection setup 1][data_col_1] 
-![Data collection setup 2][data_col_1] 
+![Data collection setup 2][data_col_2] 
 
 ### Neural Network Architecture
 The network architecture selected was inspired by [U-Net](https://arxiv.org/abs/1505.04597), 
@@ -49,7 +49,7 @@ in the paper, which has 4 encoder and decoder layers with passthrough, our netwo
 The 1x1 convolution layer at the middle layer of the neural network therefore has 512 filters 
 instead of 1024.
 
-![Network architecture diagram][network arch] 
+![Network architecture diagram][network_arch] 
 
 We found that the network did not need any more layers because the middle layer already is of size 
 20-by-20 pixels. The 1x1 convolution was used to expand (double, in this case) the number of features 
@@ -140,7 +140,7 @@ further and validation loss begins oscillating.
 ![Training progress plots][train_plots]
 
 ## Results
-The final trained network weights can be found in `data/weights/model_weights/`.
+The final trained network weights can be found in `code/trained_model.h5`.
 
 Our final network results were:
 * Final IoU of **54.75%**
