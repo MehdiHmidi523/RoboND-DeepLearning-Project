@@ -19,7 +19,7 @@
 In this project, we implemented a person detector for a quadcopter to identify and follow a "hero", 
 or person of interest, in a simulated environment.
 
-[Project introduction][intro_img]
+![Project introduction][intro_img]
 
 This was achieved using a fully convolutional network (FCN) to perform semantic segmentation -- 
 that is, classifying each pixel of an input image into one of 3 classes:
@@ -137,7 +137,7 @@ We found that training the network for **15-20 epochs** was adequate. As an expe
 the number of epochs to 50. Notice that after about 18 epochs, training loss does not decrease much 
 further and validation loss begins oscillating.
 
-[Training progress plots][train_plots]
+![Training progress plots][train_plots]
 
 ## Results
 The final trained network weights can be found in `data/weights/model_weights/`.
@@ -157,13 +157,13 @@ We can also confirm this with the following metrics from the training code:
 * 1 false positive and **190 false negatives** (compare to 111 true positives) when trying to track the target from far away
 
 ### Following the Target
-[Sample results when following the target][results_follow]
+![Sample results when following the target][results_follow]
 
 ### Target is Not Visible
-[Sample results when target is not visible][results_notarget]
+![Sample results when target is not visible][results_notarget]
 
 ### Detecting from Far Away
-[Sample results from far away][results_far]
+![Sample results from far away][results_far]
 
 ## Future Enhancements
 Since the proposed network barely meets the passing requirements for the project, there are several 
