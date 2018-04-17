@@ -142,9 +142,10 @@ further and validation loss begins oscillating.
 ![Training progress plots][train_plots]
 
 ## Results
-The final trained model can be found in `code/trained_model.h5`.
+The main Jupyter notebook with the network definition and training can be found in `code/model_training.ipynb`. 
+You can also find an HTML version of this notebook in `docs/model_training.html`.
 
-Our final network results were:
+The final trained model can be found in `code/trained_model.h5`. The overall results were:
 * Final IoU of **59.07%**
 * Score weight of **71.4%** 
 * Overall grade score of **42.18%** 
@@ -160,7 +161,8 @@ We can also confirm this with the following metrics from the training code:
 * 5 false positives and **151 false negatives** (compare to 150 true positives) when trying to track the target from far away
 
 In the images below, left is the original image, middle is the ground truth, and right is the actual 
-semantic segmentation results.
+semantic segmentation results. Note these images were taken from a previous training run with the same network, but are 
+not the ones in the Jupyter notebook in this repository.
 
 ### Following the Target
 ![Sample results when following the target][results_follow]
@@ -185,8 +187,10 @@ than getting up-close data, since the follow mode in the simulator was quite rob
 collection from far away relied heavily on carefully chosen spawn points, hero paths, and patrol points.
 
 ### Network/Training Parameters
-Our network architecture seemed to be test since the training and validation loss did not decrease much 
-past 15-20 training epochs, and slightly changing the learning rate did not affect this observation.
+Our network architecture seemed to be good at preventing overfitting, since the training and validation loss did 
+not decrease much past 15-20 training epochs, and slightly changing the learning rate did not affect this observation. 
+In addition, while validation loss ended up oscillating about a minimum, it never took on an overall increasing trend 
+near the end of training.
 
 A deeper network with more training parameters may have been better at fitting to the training data, but 
 could also be prone to overfitting. 
