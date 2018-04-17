@@ -133,8 +133,10 @@ and validation steps per epoch were set to **60** and **20**, respectively. This
 higher than number of images divided by batch size, to ensure that each training and validation 
 image is used during at least once during any given epoch.
 
-We found that training the network for **15-20 epochs** was adequate. As an experiment, we set 
-the number of epochs to 50. Notice that after about 18 epochs, training loss does not decrease much 
+The final number of epochs selected was **30**. We found that training the network for 15-20 epochs
+was adequate to get the validation loss to a good point, but training loss continued decreasing 
+beyond that, while validation loss began oscillating about a steady-state. As an experiment, we set
+the number of epochs to 50. Notice that after about 18 epochs, training loss does not decrease much
 further and validation loss begins oscillating.
 
 ![Training progress plots][train_plots]
@@ -143,18 +145,19 @@ further and validation loss begins oscillating.
 The final trained model can be found in `code/trained_model.h5`.
 
 Our final network results were:
-* Final IoU of **54.75%**
-* Score weight of **74.6%** 
-* Overall grade score of **40.86%** 
+* Final IoU of **59.07%**
+* Score weight of **71.4%** 
+* Overall grade score of **42.18%** 
 
 We found that the network worked well for detecting the hero and distinguishing it from regular 
-persons up close, but did not detect persons well from far away. See the images below as an example.
+persons up close, but created several false positives when there was a non-hero person up close, and 
+did not detect any persons well from far away. See the images below as an example.
 
 We can also confirm this with the following metrics from the training code:
 
 * No false positives or false negatives when following the target 
-* 30 false positives and no false negatives when the quad is on patrol and target is not visible
-* 1 false positive and **190 false negatives** (compare to 111 true positives) when trying to track the target from far away
+* 120 false positives and no false negatives when the quad is on patrol and target is not visible
+* 5 false positives and **151 false negatives** (compare to 150 true positives) when trying to track the target from far away
 
 In the images below, left is the original image, middle is the ground truth, and right is the actual 
 semantic segmentation results.
