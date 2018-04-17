@@ -140,7 +140,7 @@ further and validation loss begins oscillating.
 ![Training progress plots][train_plots]
 
 ## Results
-The final trained network weights can be found in `code/trained_model.h5`.
+The final trained model can be found in `code/trained_model.h5`.
 
 Our final network results were:
 * Final IoU of **54.75%**
@@ -155,6 +155,9 @@ We can also confirm this with the following metrics from the training code:
 * No false positives or false negatives when following the target 
 * 30 false positives and no false negatives when the quad is on patrol and target is not visible
 * 1 false positive and **190 false negatives** (compare to 111 true positives) when trying to track the target from far away
+
+In the images below, left is the original image, middle is the ground truth, and right is the actual 
+semantic segmentation results.
 
 ### Following the Target
 ![Sample results when following the target][results_follow]
@@ -194,7 +197,7 @@ Minimally, we would need to at least change the output layer definition to accou
 classes in our new classification problem. This is because the 3 classes in the output layer are 
 specifically background, hero, and non-hero person. 
 
-The problem in this project was made slightly easier than real-life since there are sharp differences in 
+The problem in this project was made slightly easier than real life since there are sharp differences in 
 color between the backgrounds (typically green/gray) and the persons (bright red for the hero, and 
 other non-background colors like blue/white for regular persons). Taking advantage of color, the 
 network might adequately find contrasting foreground objects such as dogs or cats even if their shapes 
